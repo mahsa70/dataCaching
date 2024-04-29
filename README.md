@@ -26,13 +26,13 @@ This project uses the following environment variables:
 - Clone the repository
 
 ```
-git clone  <git lab template url> <project_name>
+git clone  https://github.com/mahsa70/dataCaching.git
 ```
 
 - Install dependencies
 
 ```
-cd <project_name>
+cd dataCaching
 npm install
 ```
 
@@ -42,10 +42,10 @@ npm install
 npm start
 ```
 
-Navigate to `http://localhost:8001`
+Navigate to `http://localhost:1337`
 
 - API Document endpoints
 
-  swagger Spec Endpoint : http://localhost:8001/api-docs
+  swagger Spec Endpoint : http://localhost:1337/dist/
 
-  swagger-ui Endpoint : http://localhost:8001/docs
+  swagger-ui Endpoint : http://localhost:1337/dist/
