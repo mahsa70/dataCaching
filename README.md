@@ -48,9 +48,7 @@ Navigate to `http://localhost:1337`
 
 - API Document endpoints
 
-  swagger Spec Endpoint : http://localhost:1337/dist/
-
-  swagger-ui Endpoint : http://localhost:1337/dist/
+  swagger Endpoint : http://localhost:1337/dist/
 
 ### Links
 
