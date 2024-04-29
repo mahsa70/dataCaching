@@ -1,5 +1,14 @@
 # Nodejs FES Template
 
+## Introduction:
+
+In this section we want to create a cache mechanism in Nodejs application written with sailsjs framework.
+all developers can use it in their express code too.
+
+Here is the structure of cache service:
+
+![My Image](cacheDB.jpg)
+
 # Environment vars
 
 This project uses the following environment variables:
