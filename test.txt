@@ -1,0 +1,58 @@
+    // swagger: {
+    //   summary: "create  a User",
+    //   description: "This API is for creating user Object in registration",
+    //   tags: ["User"],
+    //   parameters: [],
+    //   requestBody: {
+    //     content: {
+    //       "application/json": {
+    //         schema: {
+    //           type: "object",
+    //           properties: {
+    //             firstName: {
+    //               description: "firstName",
+    //               type: "string",
+    //               example: "mahsa",
+    //             },
+    //             lastName: {
+    //               description: "lastName",
+    //               type: "string",
+    //               example: "gh",
+    //             },
+    //             phoneNumber: {
+    //               description: "mobile Number",
+    //               type: "string",
+    //               example: "9128133705",
+    //             },
+    //           },
+    //           required: ["firstName", "lastName", "phoneNumber"],
+    //         },
+    //       },
+    //     },
+    //   },
+    //   responses: {
+    //     200: {
+    //       description: "The requested resource",
+    //       content: {
+    //         "application/json": {
+    //           schema: {
+    //             type: "array",
+    //             items: { $ref: "#/components/schemas/user" },
+    //           },
+    //         },
+    //       },
+    //     },
+    //     409: {
+    //       description: "Duplicated nationalCode",
+    //       content: {
+    //         "application/json": {},
+    //       },
+    //     },
+    //     500: {
+    //       description: "Internal Error",
+    //       content: {
+    //         "application/json": {},
+    //       },
+    //     },
+    //   },
+    // },
