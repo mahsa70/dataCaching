@@ -13,9 +13,11 @@ Here is the structure of cache service:
 
 This project uses the following environment variables:
 
-| Name | Description          | Default Value |
-| ---- | -------------------- | ------------- |
-| CORS | Cors accepted values | "\*"          |
+| Name          | Description          | Default Value                      |
+| ------------- | -------------------- | ---------------------------------- |
+| REDIS_URL     | Cors accepted values | "127.0.0.1:6379"                   |
+| Mongo_URL     | Cors accepted values | " mongodb://127.0.0.1:27017/dbApp" |
+| JWT_ALGORITHM | Cors accepted values | "RS256"                            |
 
 # Pre-requisites
 
