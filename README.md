@@ -49,3 +49,19 @@ Navigate to `http://localhost:1337`
   swagger Spec Endpoint : http://localhost:1337/dist/
 
   swagger-ui Endpoint : http://localhost:1337/dist/
+
+### Links
+
+- [Sails framework documentation](https://sailsjs.com/get-started)
+- [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
+- [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
+- [Community support options](https://sailsjs.com/support)
+- [Professional / enterprise options](https://sailsjs.com/enterprise)
+
+### Version info
+
+This app was originally generated on Fri Apr 08 2023 22:26:09 GMT+0430 (Iran Daylight Time) using Sails v1.4.0.
+
+## Author
+
+- [Mahsa Ghazi](https://github.com/mahsa70)
