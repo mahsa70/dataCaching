@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { createClient } = require("redis");
 const {
   setValue,
   getValue,
@@ -21,7 +20,7 @@ mongoose.Query.prototype.exec = async function () {
     var query = this.getQuery();
     var collectionName = { collectionName: this.mongooseCollection.name };
     var cacheKey = Object.assign({}, query, collectionName);
-    // ##### get key from cache
+    // ##### get key from cache #####
     const redisValue = await getMValue(this._key, JSON.stringify(cacheKey));
     if (redisValue) {
       console.log(">>>>> read from Redis <<<<< ");
@@ -32,6 +31,7 @@ mongoose.Query.prototype.exec = async function () {
     } else {
       console.log(">>>>> read from MongoDB <<<<< ");
       const result = await exec.apply(this, arguments);
+      // ##### set the result in Redis  #####
       await setMValue(
         this._key,
         JSON.stringify(cacheKey),

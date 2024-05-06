@@ -2,10 +2,11 @@
 
 ## Introduction:
 
-In this section we want to create a cache mechanism in Nodejs application written with sailsjs framework.
-all developers can use it in their express code too.
+In this section, we aim to create a cache mechanism in a Node.js application written with the Sails.js framework.
 
-Here is the structure of cache service:
+All developers can utilize this mechanism in their Express code as well.
+
+Here is the structure of the cache service:
 
 ![My Image](cacheDB.jpg)
 
@@ -13,11 +14,12 @@ Here is the structure of cache service:
 
 This project uses the following environment variables:
 
-| Name          | Description          | Default Value                      |
-| ------------- | -------------------- | ---------------------------------- |
-| REDIS_URL     | Cors accepted values | "127.0.0.1:6379"                   |
-| Mongo_URL     | Cors accepted values | " mongodb://127.0.0.1:27017/dbApp" |
-| JWT_ALGORITHM | Cors accepted values | "RS256"                            |
+| Name                 | Description          | Default Value                      |
+| -------------------- | -------------------- | ---------------------------------- |
+| REDIS_URL            | redisDB url          | "127.0.0.1:6379"                   |
+| Mongo_URL            | MongoDB url          | " mongodb://127.0.0.1:27017/dbApp" |
+| JWT_ALGORITHM        | jwt algorithm        | "RS256"                            |
+| REFRESH_TOKEN_SECRET | refresh token secret | "??????????????"                   |
 
 # Pre-requisites
 

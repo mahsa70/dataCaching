@@ -11,18 +11,19 @@ module.exports = {
   createBlog: async (req, res) => {
     const { title, descrption } = req.body;
     var userId = req.userId;
+    console.log("userId", userId);
     const result = await blogMdl.createBlog({
       title: title,
       descrption: descrption,
       userId: userId,
       isActive: 1,
     });
-    return res.json(result);
+    return res.Ok("OK", result);
   },
 
   getAllBlogs: async (req, res) => {
     var userId = req.userId;
     var blogs = await blogMdl.getAllUserBlogs(userId, { userId: userId }, {});
-    return res.json(blogs);
+    return res.Ok("OK", blogs);
   },
 };

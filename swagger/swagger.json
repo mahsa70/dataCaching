@@ -148,75 +148,16 @@
     {
       "name": "User",
       "description": "Sails blueprint actions for the **User** model"
+    },
+    {
+      "name": "Auth"
     }
   ],
   "paths": {
     "/api/v1/user/all": {
       "get": {
-        "summary": "Authentication",
-        "description": "This is for authentication of any user",
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "firstName",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "This is a custom required parameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested resource",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/user"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "password": {
-                    "type": "string",
-                    "format": "password"
-                  }
-                },
-                "required": [
-                  "email",
-                  "password"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/user/getByUsername": {
-      "get": {
-        "summary": "Authentication",
-        "description": "This is for authentication of any user",
+        "summary": "get all users",
+        "description": "get all users",
         "tags": [
           "User"
         ],
@@ -241,29 +182,54 @@
           "500": {
             "description": "Internal server error"
           }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "username": {
-                    "type": "string"
+        }
+      }
+    },
+    "/api/v1/user/getByUsername": {
+      "get": {
+        "summary": "getByUsername",
+        "description": "getByUsername",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "username"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/user"
                   }
-                },
-                "required": [
-                  "username"
-                ]
+                }
               }
             }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     },
     "/api/v1/user/signup": {
       "post": {
-        "summary": "This is for creation of any user",
-        "description": "This is for creation of any user",
+        "summary": "signup  a user",
+        "description": "signup a user",
         "tags": [
           "User"
         ],
@@ -326,8 +292,8 @@
     },
     "/api/v1/user/signin": {
       "post": {
-        "summary": "Authentication",
-        "description": "This is for authentication of any user",
+        "summary": "signin the user",
+        "description": "signin the user",
         "tags": [
           "User"
         ],
@@ -369,6 +335,53 @@
                 "required": [
                   "email",
                   "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/refreshToken": {
+      "post": {
+        "summary": "Authentication",
+        "description": "generate a new refresh token",
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/user"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "refreshToken": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "refreshToken"
                 ]
               }
             }

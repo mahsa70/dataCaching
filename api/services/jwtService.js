@@ -13,7 +13,7 @@ var publicKEY = fs.readFileSync(
 require("dotenv").config();
 
 module.exports = {
-  jwtSign: (payload) => {
+  jwtSign: (payload, is_refresh_token = 0) => {
     var Options = {
       issuer: process.env.JWT_ISSUER,
       subject: process.env.JWT_SUBJECT,
@@ -21,11 +21,13 @@ module.exports = {
       expiresIn: "12h",
       algorithm: "RS256",
     };
-    var token = jwt.sign(payload, privateKEY, Options);
+    var token = is_refresh_token
+      ? jwt.sign(payload, "MyRefres$h$ecret", { expiresIn: "1d" })
+      : jwt.sign(payload, privateKEY, Options);
     return token;
   },
 
-  jwtVerify: (token) => {
+  jwtVerify: (token, is_refresh_token = 0) => {
     var Options = {
       issuer: process.env.JWT_ISSUER,
       subject: process.env.JWT_SUBJECT,
@@ -33,7 +35,10 @@ module.exports = {
       expiresIn: "12h",
       algorithm: "RS256",
     };
-    var legit = jwt.verify(token, publicKEY, Options);
+
+    var legit = is_refresh_token
+      ? jwt.verify(token, "MyRefres$h$ecret")
+      : jwt.verify(token, publicKEY, Options);
     return legit;
   },
 };

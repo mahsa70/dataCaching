@@ -12,31 +12,9 @@ module.exports.routes = {
     controller: "UserController",
     action: "allUsser",
     swagger: {
-      summary: "Authentication",
-      description: "This is for authentication of any user",
+      summary: "get all users",
+      description: "get all users",
       tags: ["User"],
-      requestBody: {
-        content: {
-          "application/json": {
-            schema: {
-              properties: {
-                email: { type: "string" },
-                password: { type: "string", format: "password" },
-              },
-              required: ["email", "password"],
-            },
-          },
-        },
-      },
-      parameters: [
-        {
-          in: "query",
-          name: "firstName",
-          required: true,
-          schema: { type: "string" },
-          description: "This is a custom required parameter",
-        },
-      ],
       responses: {
         200: {
           description: "The requested resource",
@@ -59,21 +37,18 @@ module.exports.routes = {
     controller: "UserController",
     action: "getUserByUsername",
     swagger: {
-      summary: "Authentication",
-      description: "This is for authentication of any user",
+      summary: "getByUsername",
+      description: "getByUsername",
       tags: ["User"],
-      requestBody: {
-        content: {
-          "application/json": {
-            schema: {
-              properties: {
-                username: { type: "string" },
-              },
-              required: ["username"],
-            },
-          },
+      parameters: [
+        {
+          in: "query",
+          name: "username",
+          required: true,
+          schema: { type: "string" },
+          description: "username",
         },
-      },
+      ],
       responses: {
         200: {
           description: "The requested resource",
@@ -96,8 +71,8 @@ module.exports.routes = {
     controller: "UserController",
     action: "signup",
     swagger: {
-      summary: "signup user",
-      description: "signup user",
+      summary: "signup  a user",
+      description: "signup a user",
       tags: ["User"],
       requestBody: {
         content: {
@@ -141,8 +116,8 @@ module.exports.routes = {
     controller: "UserController",
     action: "signin",
     swagger: {
-      summary: "Authentication",
-      description: "This is for authentication of any user",
+      summary: "signin the user",
+      description: "signin the user",
       tags: ["User"],
       requestBody: {
         content: {
@@ -153,6 +128,43 @@ module.exports.routes = {
                 password: { type: "string", format: "password" },
               },
               required: ["email", "password"],
+            },
+          },
+        },
+      },
+      responses: {
+        200: {
+          description: "The requested resource",
+          content: {
+            "application/json": {
+              schema: {
+                type: "array",
+                items: { $ref: "#/components/schemas/user" },
+              },
+            },
+          },
+        },
+        404: { description: "Resource not found" },
+        500: { description: "Internal server error" },
+      },
+    },
+  },
+
+  "POST /api/v1/auth/refreshToken": {
+    controller: "UserController",
+    action: "newRefreshToken",
+    swagger: {
+      summary: "Authentication",
+      description: "generate a new refresh token",
+      tags: ["Auth"],
+      requestBody: {
+        content: {
+          "application/json": {
+            schema: {
+              properties: {
+                refreshToken: { type: "string" },
+              },
+              required: ["refreshToken"],
             },
           },
         },

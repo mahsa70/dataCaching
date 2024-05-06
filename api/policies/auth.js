@@ -9,15 +9,19 @@ module.exports = async function (req, res, next) {
     var access_token = req.headers.authorization.split(" ")[1];
     var result = jwtVerify(access_token);
     if (!result) {
-      return res.status(403).send({ data: [], message: "Access denied" });
+      return res.Forbiden("Access denied", []);
     } else {
-      const userInfo = await userMdl.getUserByKey({
-        access_token: access_token,
-      });
+      const userInfo = await userMdl.getUserByKey(
+        {
+          access_token: access_token,
+        },
+        {},
+        false
+      );
       req.userId = userInfo.id;
       next();
     }
   } else {
-    return res.status(403).send({ data: [], message: "Access denied" });
+    return res.Forbiden("Access denied", []);
   }
 };
