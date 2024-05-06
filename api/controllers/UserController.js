@@ -12,7 +12,7 @@ module.exports = {
 
   getUserByUsername: async (req, res) => {
     try {
-      const { username } = req.query.username;
+      const { username } = req.param("username");
       console.log("username", username);
       var userInfo = await userMdl.getUserByKey(
         { username: username },
