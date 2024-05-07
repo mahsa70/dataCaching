@@ -396,19 +396,7 @@
         "tags": [
           "Blog"
         ],
-        "parameters": [
-          {
-            "name": "access_token",
-            "in": "header",
-            "required": true,
-            "description": "access token",
-            "schema": {
-              "access_token": {
-                "type": "string"
-              }
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The requested resource",
@@ -470,19 +458,7 @@
         "tags": [
           "Blog"
         ],
-        "parameters": [
-          {
-            "name": "access_token",
-            "in": "header",
-            "required": true,
-            "description": "access token",
-            "schema": {
-              "access_token": {
-                "type": "string"
-              }
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The requested resource",

@@ -194,17 +194,6 @@ module.exports.routes = {
       summary: "create a blog by user",
       description: "this api is used for creating a blog",
       tags: ["Blog"],
-      parameters: [
-        {
-          name: "access_token",
-          in: "header",
-          required: true,
-          description: "access token",
-          schema: {
-            access_token: { type: "string" },
-          },
-        },
-      ],
       requestBody: {
         content: {
           "application/json": {
@@ -245,17 +234,6 @@ module.exports.routes = {
       summary: "create a blog by user",
       description: "this api is used for creating a blog",
       tags: ["Blog"],
-      parameters: [
-        {
-          name: "access_token",
-          in: "header",
-          required: true,
-          description: "access token",
-          schema: {
-            access_token: { type: "string" },
-          },
-        },
-      ],
       responses: {
         200: {
           description: "The requested resource",

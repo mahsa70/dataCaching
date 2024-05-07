@@ -12,11 +12,10 @@ module.exports = {
 
   getUserByUsername: async (req, res) => {
     try {
-      const { username } = req.param("username");
-      console.log("username", username);
+      const { username } = req.query;
       var userInfo = await userMdl.getUserByKey(
         { username: username },
-        { password: -1 },
+        { password: 0 },
         (isCached = false)
       );
       if (userInfo) return res.Ok("OK", userInfo);
@@ -106,7 +105,7 @@ module.exports = {
               email: userInfo.email,
               username: userInfo.username,
             },
-            1
+            0
           );
           var newRefreshToken = jwtSign({ email: userInfo.email }, 1);
           var updatedDoc = await userMdl.updateUserInfo(

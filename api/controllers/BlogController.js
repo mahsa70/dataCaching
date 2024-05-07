@@ -11,7 +11,6 @@ module.exports = {
   createBlog: async (req, res) => {
     const { title, descrption } = req.body;
     var userId = req.userId;
-    console.log("userId", userId);
     const result = await blogMdl.createBlog({
       title: title,
       descrption: descrption,

@@ -18,8 +18,12 @@ module.exports = async function (req, res, next) {
         {},
         false
       );
-      req.userId = userInfo.id;
-      next();
+      if (userInfo) {
+        req.userId = userInfo.id;
+        next();
+      } else {
+        return res.Forbiden("Access denied", []);
+      }
     }
   } else {
     return res.Forbiden("Access denied", []);
